@@ -26,7 +26,6 @@ const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD_PROFILES: {
             newState = {}
-            console.log('@@@@@@@@@@@@@@@@@@@')
             newState = action.profiles
             return { ...newState, ...state }
         }

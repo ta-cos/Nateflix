@@ -7,15 +7,10 @@ export const NavbarWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-`
-
-export const NavbarLogo = styled.div`
-    width: 120px;
-    text-align: center;
-    color: #e50914;
-    margin-left: 50px;
+    color: white;
 
     img{
+        margin-left: 100px;
         width: 120px;
     }
 `
@@ -43,8 +38,7 @@ export const ButtonWrapper = styled.div`
     }
 
     button:hover{
-        color: #E50914;
-        background-color: #fff;
+        color: #000;
         cursor: pointer;
     }
 `
@@ -53,7 +47,7 @@ export const DemoButton = styled.button`
     font-size: 16px;
     font-family: sans-serif;
     padding: 7px 17px;
-    background-color: #e50914;
+    background-color: #E50914;
     border: none;
     color: white;
 `
@@ -65,4 +59,17 @@ export const LogoutButton = styled.button`
     background-color: #e50914;
     border: none;
     color: white;
+`
+
+export const ProfileContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: absolute;
+    top: 20px;
+    right: 100px;
+`
+
+export const EmailContainer = styled.div`
+    
 `

@@ -13,9 +13,7 @@ const Profile = () => {
     getProfiles();
 
     const profiles = useSelector(state => state.profile.users)
-    console.log('#################')
-    console.log(profiles)
-    console.log('#################')
+
 
 
 
