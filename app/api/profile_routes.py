@@ -7,6 +7,6 @@ profile_routes = Blueprint('profiles', __name__)
 
 @profile_routes.route('/<int:user_id>')
 @login_required
-def all_user_profiles():
-    profiles = Profile.query.all(user_id)
-    return {'users': [profiles.to_dict() for profile in profiles]}
+def all_user_profiles(user_id):
+    profiles = Profile.query.filter(Profile.user_id == user_id).all()
+    return {'users': [profile.to_dict() for profile in profiles]}

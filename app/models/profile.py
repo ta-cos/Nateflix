@@ -10,13 +10,13 @@ class Profile(db.Model):
     img = db.Column(db.String, nullable=True)
 
     user_info = db.relationship("User", back_populates="profile_info")
-    review_info =db.relationship("Review", back_populates="profile")
+    review_info = db.relationship("Review", back_populates="profile")
     myList_info = db.relationship("MyList", back_populates="profile3")
 
     def to_dict(self):
         return {
             "id": self.id,
-            "name": self.name,
             "user_id": self.user_id,
+            "name": self.name,
             "img": self.img
         }

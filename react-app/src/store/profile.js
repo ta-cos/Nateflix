@@ -1,3 +1,4 @@
+
 const LOAD_PROFILES = "profiles/LOAD_WATCHLISTS"
 
 export const loadProfiles = (profiles) => {
@@ -17,3 +18,21 @@ export const loadUserProfiles = (userId) => async (dispatch) => {
         return profiles
     }
 }
+
+const initialState = {};
+
+const profileReducer = (state = initialState, action) => {
+    let newState;
+    switch (action.type) {
+        case LOAD_PROFILES: {
+            newState = {}
+            console.log('@@@@@@@@@@@@@@@@@@@')
+            newState = action.profiles
+            return { ...newState, ...state }
+        }
+        default:
+            return state
+    }
+}
+
+export default profileReducer

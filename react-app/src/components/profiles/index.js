@@ -1,24 +1,32 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { loadUserProfiles } from '../../store/profile';
-
-
+import { ProfileContainer, ProfileContent } from './ProfileElements';
 const Profile = () => {
 
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
 
-    const loadProfiles = async () => {
+    async function getProfiles() {
         await dispatch(loadUserProfiles(user.id))
     }
+    getProfiles();
 
-    loadProfiles()
+    const profiles = useSelector(state => state.profile.users)
+    console.log('#################')
+    console.log(profiles)
+    console.log('#################')
+
 
 
     return (
-        <div>
-            <h1>Who is watching?</h1>
-        </div>
+        <ProfileContainer>
+            <ProfileContent>
+                {profiles?.map((profile) => (
+                    <h3>{profile.name}</h3>
+                ))}
+            </ProfileContent>
+        </ProfileContainer>
     )
 }
 
