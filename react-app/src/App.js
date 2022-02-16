@@ -10,6 +10,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import Splash from './components/Splash/Splash'
 import Profile from './components/profiles';
+import EditProfiles from './components/EditProfiles';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -39,8 +40,8 @@ function App() {
         <ProtectedRoute path='/profiles' exact={true} >
           <Profile />
         </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
+        <ProtectedRoute path='/edit/profiles' exact={true} >
+          <EditProfiles />
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <Splash />
