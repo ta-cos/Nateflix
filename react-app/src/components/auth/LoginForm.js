@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect, Link, useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
 import './LoginForm.css'
 import { SplashContainer } from '../Splash/SplashElements';
 
 const LoginForm = () => {
+
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -18,6 +20,7 @@ const LoginForm = () => {
     if (data) {
       setErrors(data);
     }
+    history.push('/profiles')
   };
 
   const updateEmail = (e) => {

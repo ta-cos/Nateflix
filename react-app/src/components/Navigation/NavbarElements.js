@@ -10,7 +10,7 @@ export const NavbarWrapper = styled.div`
 `
 
 export const NavbarLogo = styled.div`
-    width: 100px;
+    width: 120px;
     text-align: center;
     color: #e50914;
     margin-left: 50px;
@@ -18,6 +18,11 @@ export const NavbarLogo = styled.div`
     img{
         width: 120px;
     }
+`
+
+export const NavbarContent = styled.div`
+    display: flex;
+    justify-content: space-around;
 `
 
 export const ButtonWrapper = styled.div`
