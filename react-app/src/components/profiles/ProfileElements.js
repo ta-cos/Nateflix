@@ -18,3 +18,9 @@ export const ProfileContent = styled.div`
 
     color: white;
 `
+
+export const ProfileCard = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`

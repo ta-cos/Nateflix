@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { loadUserProfiles } from '../../store/profile';
-import { ProfileContainer, ProfileContent } from './ProfileElements';
+import { ProfileContainer, ProfileContent, ProfileCard } from './ProfileElements';
 const Profile = () => {
 
     const dispatch = useDispatch();
@@ -23,7 +23,11 @@ const Profile = () => {
         <ProfileContainer>
             <ProfileContent>
                 {profiles?.map((profile) => (
-                    <h3>{profile.name}</h3>
+                    <ProfileCard>
+                        <img src={profile.img} alt='profile image' />
+                        <h3>{profile.name}</h3>
+                    </ProfileCard>
+
                 ))}
             </ProfileContent>
         </ProfileContainer>
