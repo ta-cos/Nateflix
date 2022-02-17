@@ -3,7 +3,6 @@ import { ProfileContainer, ProfileContent, ProfileCard } from '../profiles/Profi
 const EditProfiles = () => {
 
     const profiles = useSelector(state => state.profile.users)
-    console.log(profiles)
 
     return (
         <ProfileContainer>

@@ -27,13 +27,13 @@ export const ButtonWrapper = styled.div`
     margin-right: 50px;
 
     a{
-        color: #fff;
+        color: #E50914;
         font-size: 24px;
         text-decoration: none;
     }
 
     a:hover{
-        color: #E50914;
+        color: #fff;
         cursor: pointer;
     }
 
@@ -71,5 +71,5 @@ export const ProfileContent = styled.div`
 `
 
 export const EmailContainer = styled.div`
-    
+
 `

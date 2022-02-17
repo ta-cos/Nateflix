@@ -5,12 +5,10 @@ import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import Navbar from './components/Navigation/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import User from './components/User';
 import { authenticate } from './store/session';
 import Splash from './components/Splash/Splash'
-import Profile from './components/profiles';
 import EditProfiles from './components/EditProfiles';
+import SelectProfile from './components/SelectProfile';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -34,11 +32,11 @@ function App() {
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
-        <Route path='/sign-up' exact={true}>
+        <Route path='/sign-up/:email' exact={true}>
           <SignUpForm />
         </Route>
         <ProtectedRoute path='/profiles' exact={true} >
-          <Profile />
+          <SelectProfile />
         </ProtectedRoute>
         <ProtectedRoute path='/edit/profiles' exact={true} >
           <EditProfiles />

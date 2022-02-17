@@ -41,8 +41,9 @@ export const SplashContenet = styled.div`
         font-weight: 100;
     }
 
-    div{
+    form{
         display: flex;
+        flex-direction: row;
     }
 
     input{

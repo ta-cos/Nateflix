@@ -23,4 +23,5 @@ export const ProfileCard = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: white;
 `
