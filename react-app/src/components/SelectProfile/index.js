@@ -2,6 +2,7 @@ import { loadUserProfiles, createProfile } from '../../store/profile';
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from 'react';
 import Profile from '../profiles';
+import { useHistory } from 'react-router-dom'
 import { FaDivide } from 'react-icons/fa';
 import './index.css'
 
@@ -9,6 +10,7 @@ import './index.css'
 const SelectProfile = () => {
 
     const dispatch = useDispatch();
+    const history = useHistory();
     const user = useSelector(state => state.session.user);
     const [profileName, setProfileName] = useState("");
 
@@ -35,13 +37,13 @@ const SelectProfile = () => {
                 ))}
             </div>
             <div id='add-profile'>
-            {profiles.length > 4 ? null :
-                <form onSubmit={handleAdd}>
-                    <input type='text' placeholder='Profile Name' value={profileName}
-                        onChange={e => setProfileName(e.target.value)} required={true}></input>
-                    <button type='submit'> Add Profile </button>
-                </form>
-            }
+                {profiles.length > 4 ? null :
+                    <form onSubmit={handleAdd}>
+                        <input type='text' placeholder='Profile Name' value={profileName}
+                            onChange={e => setProfileName(e.target.value)} required={true}></input>
+                        <button type='submit'> Add Profile </button>
+                    </form>
+                }
             </div>
         </div>
     )

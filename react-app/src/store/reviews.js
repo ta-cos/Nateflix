@@ -1,20 +1,20 @@
 
-const LOAD_REVIEW = "review/GET"
+const MY_REVIEW = "review/GET/mine"
 
-export const loadReviews = (review) => {
+export const myReviews = (review) => {
     return {
-        type: LOAD_REVIEW,
+        type: MY_REVIEW,
         review
     }
 }
 
-export const loadUserReview = (userId) => async (dispatch) => {
-    const res = await fetch(`/api/reviews/${videoId}`, {
+export const getMyReviews = (profileId) => async (dispatch) => {
+    const res = await fetch(`/api/reviews/${profileId}`, {
         headers: { "Content-Type": "application/json" }
     })
     if (res.ok) {
         const review = await res.json();
-        dispatch(loadReviews(review))
+        dispatch(myReviews(review))
         return review
     }
 }
@@ -28,14 +28,14 @@ export const add = (review) => {
     }
 }
 
-export const createReview = (id, name, img) => async (dispatch) => {
-    const res = await fetch(`/api/reviews/${id}/create`, {
+export const createReview = (profile_id, video_id, rating) => async (dispatch) => {
+    const res = await fetch(`/api/reviews/create`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            id,
-            name,
-            img
+            profile_id,
+            video_id,
+            rating
         })
     })
     if (res.ok) {
@@ -80,7 +80,6 @@ const del = (id) => {
 }
 
 export const delReview = (id) => async (dispatch) => {
-    console.log('THUNK', id)
     const res = await fetch(`/api/reviews/${id}/delete`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' }
@@ -96,11 +95,10 @@ const initialState = {};
 const reviewReducer = (state = initialState, action) => {
     let newState = { ...state }
     switch (action.type) {
-        case LOAD_REVIEW: {
+        case MY_REVIEW: {
             action.review.forEach(item => {
                 newState[item.id] = item
             });
-            console.log(newState)
             return newState
         }
         case ADD_REVIEW:
@@ -109,7 +107,6 @@ const reviewReducer = (state = initialState, action) => {
             return newState
         }
         case DELETE_REVIEW: {
-            console.log('REDUCER', action.id)
             delete newState[action.id];
             return newState
         }

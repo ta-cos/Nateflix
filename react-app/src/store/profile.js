@@ -80,7 +80,6 @@ const del = (id) => {
 }
 
 export const delProfile = (id) => async (dispatch) => {
-    console.log('THUNK', id)
     const res = await fetch(`/api/profiles/${id}/delete`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' }
@@ -100,7 +99,6 @@ const profileReducer = (state = initialState, action) => {
             action.profiles.forEach(profile => {
                 newState[profile.id] = profile
             });
-            console.log(newState)
             return newState
         }
         case ADD_PROFILE:
@@ -109,7 +107,6 @@ const profileReducer = (state = initialState, action) => {
             return newState
         }
         case DELETE_PROFILE: {
-            console.log('REDUCER', action.id)
             delete newState[action.id];
             return newState
         }

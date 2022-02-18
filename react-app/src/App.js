@@ -7,7 +7,7 @@ import Navbar from './components/Navigation/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import { authenticate } from './store/session';
 import Splash from './components/Splash/Splash'
-import EditProfiles from './components/EditProfiles';
+import Browse from './components/browse';
 import SelectProfile from './components/SelectProfile';
 
 function App() {
@@ -38,8 +38,8 @@ function App() {
         <ProtectedRoute path='/profiles' exact={true} >
           <SelectProfile />
         </ProtectedRoute>
-        <ProtectedRoute path='/edit/profiles' exact={true} >
-          <EditProfiles />
+        <ProtectedRoute path='/browse/:profileId' exact={true} >
+          <Browse />
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <Splash />

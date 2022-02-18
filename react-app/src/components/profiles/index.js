@@ -4,14 +4,17 @@ import { loadUserProfiles, delProfile } from '../../store/profile';
 import { ProfileCard } from './ProfileElements';
 import { FaPen } from 'react-icons/fa'
 import { editProfileName } from '../../store/profile';
+import { useHistory } from 'react-router-dom';
+
+
 const Profile = ({ profile }) => {
 
     const dispatch = useDispatch();
+    const history = useHistory();
     const [newProfileName, setProfileName] = useState(`${profile.name}`)
     const [showEditForm, setShowEditForm] = useState(false)
 
     const handleDelete = async () => {
-        console.log('delete')
         console.log(profile.id)
         await dispatch(delProfile(profile.id))
     }
@@ -20,6 +23,10 @@ const Profile = ({ profile }) => {
         e.preventDefault();
         await dispatch(editProfileName(profile.id, newProfileName))
         setShowEditForm(!showEditForm)
+    }
+
+    const handleSelect = (e) => {
+        history.push(`/browse/${e.target.value}`)
     }
 
     return (
@@ -43,6 +50,7 @@ const Profile = ({ profile }) => {
                     </form>
                 )}
                 <button onClick={handleDelete}> DELETE</button>
+                <button onClick={handleSelect} value={profile.id}>Select</button>
             </div>
         </ProfileCard>
     )

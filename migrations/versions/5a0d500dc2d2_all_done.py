@@ -1,8 +1,8 @@
-"""added all tables
+"""all-done
 
-Revision ID: 248ae47f6843
+Revision ID: 5a0d500dc2d2
 Revises: 
-Create Date: 2022-02-15 12:54:49.685421
+Create Date: 2022-02-17 16:44:28.099228
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '248ae47f6843'
+revision = '5a0d500dc2d2'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -27,9 +27,10 @@ def upgrade():
     )
     op.create_table('videos',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('title', sa.String(), nullable=False),
-    sa.Column('img', sa.String(), nullable=False),
-    sa.Column('vid', sa.String(), nullable=False),
+    sa.Column('title', sa.String(length=255), nullable=False),
+    sa.Column('category', sa.String(length=255), nullable=False),
+    sa.Column('img', sa.String(length=255), nullable=True),
+    sa.Column('vid', sa.String(length=255), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('profiles',

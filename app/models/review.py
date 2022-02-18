@@ -5,8 +5,10 @@ class Review(db.Model):
     __tablename__ = "reviews"
 
     id = db.Column(db.Integer, primary_key=True)
-    profile_id = db.Column(db.Integer, db.ForeignKey("profiles.id"), nullable=False)
-    video_id = db.Column(db.Integer, db.ForeignKey("videos.id"), nullable=False)
+    profile_id = db.Column(db.Integer, db.ForeignKey(
+        "profiles.id"), nullable=False)
+    video_id = db.Column(db.Integer, db.ForeignKey(
+        "videos.id"), nullable=False)
     rating = db.Column(db.Integer, nullable=False)
 
     profile = db.relationship("Profile", back_populates="review_info")

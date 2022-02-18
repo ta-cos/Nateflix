@@ -1,6 +1,7 @@
 from flask.cli import AppGroup
 from .users import seed_users
 from .profiles import seed_profiles
+from .videos import seed_videos
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -12,6 +13,7 @@ seed_commands = AppGroup('seed')
 def seed():
     seed_users()
     seed_profiles()
+    seed_videos()
     # Add other seed functions here
 
 
