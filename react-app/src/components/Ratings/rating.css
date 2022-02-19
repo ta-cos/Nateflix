@@ -1,36 +1,49 @@
 .liked{
-    background-color: green;
-    border-radius: 50%;
+    background-color: transparent;
+    font-size: 15px;
+    color: green;
     height: 50px;
     width: 50px;
     border: none;
 }
 
 .hated{
-    background-color: red;
+    background-color: transparent;
+    font-size: 15px;
+    color: red;
+    height: 50px;
+    width: 50px;
+    border: none;
+}
+
+
+.not-liked{
+    background-color: transparent;
+    font-size: 15px;
+    color: white;
     border-radius: 50%;
     height: 50px;
     width: 50px;
     border: none;
 }
 
-.not-liked{
-    border: 1px solid green;
-    border-radius: 50%;
-    height: 50px;
-    width: 50px;
-}
-
 .not-hated{
-    border: 2px solid red;
-    border-radius: 50%;
+    background-color: transparent;
+    font-size:15px;
+    color: white;
     height: 50px;
     width: 50px;
+    border: none;
+    z-index: 10;
 }
 
 .remove{
-    border-radius: 50%;
+    background-color: transparent;
+    font-size: 15px;
+    color: white;
     height: 50px;
     width: 50px;
-    border: 2px solid gold;
+    border: none;
+    z-index: 10;
+
 }

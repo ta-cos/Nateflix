@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect, useHistory } from 'react-router-dom';
+import { Redirect, useHistory, useParams } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import { SplashContainer } from '../Splash/SplashElements';
 import './SignUpForm.css'
 
 const SignUpForm = () => {
+
+  const initalEmail = useParams()
   const [errors, setErrors] = useState([]);
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState(initalEmail.email);
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
-  const history = useHistory
+  const history = useHistory();
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -19,9 +22,9 @@ const SignUpForm = () => {
       const data = await dispatch(signUp(email, password));
       if (data) {
         setErrors(data)
-      } else {
-        history.push('/browse')
-      }
+      } else history.push('/profiles')
+    } else {
+      setErrors(['Passwords need to match'])
     }
   };
 
@@ -42,44 +45,53 @@ const SignUpForm = () => {
   }
 
   return (
-    <div className='form-container'>
-      <form onSubmit={onSignUp}>
-        <div>
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
-        </div>
-        <div>
-          <input
-            placeholder='Email'
-            type='email'
-            name='email'
-            onChange={updateEmail}
-            value={email}
-          ></input>
-        </div>
-        <div>
-          <input
-            placeholder='Password'
-            type='password'
-            name='password'
-            onChange={updatePassword}
-            value={password}
-          ></input>
-        </div>
-        <div>
-          <input
-            placeholder='Confirm Password'
-            type='password'
-            name='repeat_password'
-            onChange={updateRepeatPassword}
-            value={repeatPassword}
-            required={true}
-          ></input>
-        </div>
-        <button type='submit'>Sign Up</button>
-      </form>
-    </div>
+    <>
+      <SplashContainer />
+      <div className='form-container'>
+        <form onSubmit={onSignUp}>
+          <h1 className='form-header'>Sign Up</h1>
+          <div className='errors-div'>
+            {errors.map((error, ind) => (
+              <div key={ind}>{error}</div>
+            ))}
+          </div>
+          <div>
+            <input
+              className='form-input'
+              placeholder='Email'
+              type='email'
+              name='email'
+              required={true}
+              onChange={updateEmail}
+              value={email}
+            ></input>
+          </div>
+          <div>
+            <input
+              className='form-input'
+              placeholder='Password'
+              type='password'
+              name='password'
+              onChange={updatePassword}
+              value={password}
+              required={true}
+            ></input>
+          </div>
+          <div>
+            <input
+              className='form-input'
+              placeholder='Confirm Password'
+              type='password'
+              name='repeat_password'
+              onChange={updateRepeatPassword}
+              value={repeatPassword}
+              required={true}
+            ></input>
+          </div>
+          <button className='form-submit' type='submit'>Sign Up</button>
+        </form>
+      </div>
+    </>
   );
 };
 

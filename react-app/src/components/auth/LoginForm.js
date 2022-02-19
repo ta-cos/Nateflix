@@ -19,8 +19,7 @@ const LoginForm = () => {
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
-    }
-    history.push('/profiles')
+    } else history.push('/profiles')
   };
 
   const updateEmail = (e) => {
@@ -38,11 +37,11 @@ const LoginForm = () => {
   return (
     <>
       <SplashContainer />
-      <div id='form-container'>
+      <div className='form-container'>
         <form onSubmit={onLogin}>
-          <h1 className='form-header'>Sign In</h1>
+          <h1 className='form-header'>Log In</h1>
           <div className='errors-div'>
-            {errors.map((error, ind) => (
+            {errors?.map((error, ind) => (
               <div key={ind}>{error}</div>
             ))}
           </div>
@@ -50,10 +49,12 @@ const LoginForm = () => {
             <input
               className='form-input'
               name='email'
-              type='text'
+              type='eamil'
               placeholder='Email'
               value={email}
               onChange={updateEmail}
+              required={true}
+
             />
           </div>
           <div>
@@ -64,11 +65,13 @@ const LoginForm = () => {
               placeholder='Password'
               value={password}
               onChange={updatePassword}
+              required={true}
+
             />
           </div>
           <button className='form-submit' type='submit'>Login</button>
 
-          <p className='form-change'>New to NATEFLIX? <Link to="/signup">Sign up now.</Link></p>
+          <p className='form-change'>New to NATEFLIX? <Link to="/sign-up/Email">Sign up now.</Link></p>
         </form>
       </div>
     </>

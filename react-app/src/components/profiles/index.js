@@ -15,7 +15,6 @@ const Profile = ({ profile }) => {
     const [showEditForm, setShowEditForm] = useState(false)
 
     const handleDelete = async () => {
-        console.log(profile.id)
         await dispatch(delProfile(profile.id))
     }
 

@@ -57,7 +57,7 @@ export const SplashContenet = styled.div`
         border: none;
         color: white;
         font-size: 1.625rem;
-        min-height: 60px;
+        min-height: 62px;
         padding: 0px 26px 0px 26px;
     }
 

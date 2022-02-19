@@ -18,26 +18,17 @@ def get_review(profile_id):
 def create_review():
     object = request.json
 
-    isNew = Review.query.filter(
-        Review.profile_id == object['profile_id'] and Review.video_id == object['video_id']
-    ).first()
+    print()
+    print(object)
+    print()
 
-    if(isNew):
-        print()
-        print()
-        print()
-        print(isNew.rating)
-        print()
-        print()
-        print()
-        isNew.rating = object['rating']
-        print()
-        print()
-        print()
-        print(isNew.rating)
-        db.session.add(isNew)
+    isNotNew = Review.query.filter(
+        Review.profile_id == object['profile_id'], Review.video_id == object['video_id']).first()
+
+    if(isNotNew):
+        isNotNew.rating = object['rating']
         db.session.commit()
-        return isNew.to_dict()
+        return isNotNew.to_dict()
     else:
         review = Review(
             profile_id=object['profile_id'], video_id=object['video_id'], rating=object['rating']

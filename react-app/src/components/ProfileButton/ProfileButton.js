@@ -44,7 +44,6 @@ function ProfileButton() {
             </ProfileMenuBtn>}
             {showMenu && (
                 <ProfileDropdown>
-                    <Link to={'/editprofile'} className="manage-pro-btn">Manage profiles</Link>
                     {user ? <button className="logout-btn" onClick={handleLogout}>Logout</button> : null}
                 </ProfileDropdown>
             )}
