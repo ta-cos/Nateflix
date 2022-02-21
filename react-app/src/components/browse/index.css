@@ -1,25 +1,54 @@
+.browse-container{
+    color: white;
+}
+
 #vids-container{
     display: flex;
     flex-direction: column;
     align-items: center;
     color: white;
     object-fit: contain;
+    margin-bottom: 50px;
 }
 
-#vids-comedy{
+#vids{
+    overflow: hidden;
     width: 100%;
     display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    text-align: center;
-    object-fit:contain;
 }
 
-.each-vid{
-    margin-left: 25px;
+#inner{
+    transition: transform 0.3s;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.item{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
 }
 
 .rating-buttons{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
 }
+
+button{
+    position: relative;
+    z-index: 10;
+    background-color: black;
+    border: none;
+    color: white;
+}
+
+/* <div id='vids-container'>
+                <h2>Comedy</h2>
+                <div id='vids-comedy'> {/*Carousel}*/
+                    /* <div id='inner' style={{ transform: 'translateX(-0%)' }}> */
+                        /* {comedyVids?.map(video => ( */
+                            /* <VideoHover video={video} /> */
+                        /* ))} */
+                    /* </div> */
+                /* </div>  */
