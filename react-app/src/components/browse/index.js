@@ -22,12 +22,16 @@ const Browse = () => {
     const dramaVids = videos?.filter(vid => vid.category === 'Drama')
     const romanceVids = videos?.filter(vid => vid.category === 'Romance')
     const actionVids = videos?.filter(vid => vid.category === 'Action')
-
-    console.log(comedyVids)
+    const myList = [];
 
     return (
         <div className='browse-container'>
-            
+            {myList.length > 0 &&
+                <>
+                    <h2>My List</h2>
+                    <Carousel props={myList} />
+                </>
+            }
             <h2>Comedy</h2>
             <Carousel props={comedyVids} />
             <h2>Drama</h2>

@@ -12,10 +12,13 @@ const VideoHover = ({ video }) => {
                 onMouseEnter={() => setShowRating(true)}
                 onMouseLeave={() => setShowRating(false)}
             >
-                <iframe width='100%' src={video.vid} frameBorder="1" allowFullScreen />
+                <iframe width='100%' src={video.vid} frameBorder="0" allowFullScreen />
                 {showRating &&
-                    <div id='rating'>
-                        <Rating video={video} />
+                    <div className='sub-menu'>
+                        {video.title}
+                        <div id='rating'>
+                            <Rating video={video} />
+                        </div>
                     </div>
                 }
             </div>

@@ -35,12 +35,13 @@ const Rating = ({ video }) => {
     return (
         <div className='rating-buttons'>
             <button
+                id='like-button'
                 className={reviews.find(review => { return review.video_id === video.id })?.rating === 100 ? 'liked' : 'not-liked'}
                 disabled={reviews.find(review => review.video_id === video.id && review.rating === 100)}
                 onClick={handleLike}
                 value={video.id}
             >
-                Like
+                <img src="https://img.icons8.com/ios/50/000000/comedy.png" />
             </button>
             <button
                 className={reviews.find(review => { return review.video_id === video.id })?.rating === 0 ? 'hated' : 'not-hated'}
