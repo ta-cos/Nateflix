@@ -4,12 +4,14 @@ import session from './session'
 import profiles from './profile'
 import videos from './videos'
 import reviews from './reviews'
+import listReducer from './myList';
 
 const rootReducer = combineReducers({
   session,
   profiles,
   videos,
-  reviews
+  reviews,
+  listReducer
 });
 
 

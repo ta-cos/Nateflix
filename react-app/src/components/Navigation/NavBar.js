@@ -32,7 +32,6 @@ const Navbar = () => {
           <ButtonWrapper>
             {user ? null : <NavLink id='login' to='/login'> Log In </NavLink>}
             {user ? null : <DemoButton onClick={handleDemo}> Demo </DemoButton>}
-            {/* <LogoutButton onClcik={handleLogout}> Log Out </LogoutButton> */}
           </ButtonWrapper>
           <ProfileContent>
             <ProfileButton />

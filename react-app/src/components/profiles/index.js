@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux';
-import { loadUserProfiles, delProfile } from '../../store/profile';
-import { ProfileCard } from './ProfileElements';
-import { FaPen } from 'react-icons/fa'
+import { useDispatch } from 'react-redux';
+import { delProfile } from '../../store/profile';
+import { ProfileCard, ProfileButtonsContainer, ProfileButton, EditButton, DelButton } from './ProfileElements';
+import { FaPen, FaTrash } from 'react-icons/fa'
 import { editProfileName } from '../../store/profile';
 import { useHistory } from 'react-router-dom';
 
@@ -28,12 +28,17 @@ const Profile = ({ profile }) => {
         history.push(`/browse/${e.target.value}`)
     }
 
+    // <img src={profile.img} alt='profile image' data-profile-id />
+
     return (
         <ProfileCard>
-            <img src={profile.img} alt='profile image' />
-            <h3>{profile.name}</h3>
-            <div>
-                <button onClick={(e) => setShowEditForm(!showEditForm)}><FaPen /></button>
+            <ProfileButton onClick={handleSelect} value={profile.id} style={{ backgroundImage: `url(${profile.img})` }}></ProfileButton>
+            <div style={{ display: 'flex' }}>
+                <h2>{profile.name}</h2>
+                <EditButton onClick={(e) => setShowEditForm(!showEditForm)}><FaPen /></EditButton>
+                <DelButton onClick={handleDelete} value={profile.id}> <FaTrash /></DelButton>
+            </div>
+            <ProfileButtonsContainer>
                 {showEditForm && (
                     <form onSubmit={handleEdit}>
                         <div>
@@ -44,13 +49,11 @@ const Profile = ({ profile }) => {
                                 onChange={e => setProfileName(e.target.value)}
                             >
                             </input>
-                            <button type="submit">Submit</button>
+                            <ProfileButton type="submit">Submit</ProfileButton>
                         </div>
                     </form>
                 )}
-                <button onClick={handleDelete}> DELETE</button>
-                <button onClick={handleSelect} value={profile.id}>Select</button>
-            </div>
+            </ProfileButtonsContainer>
         </ProfileCard>
     )
 }

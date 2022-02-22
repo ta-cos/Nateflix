@@ -75,17 +75,17 @@ const DELETE_PROFILE = 'profile/DELETE'
 const del = (id) => {
     return {
         type: DELETE_PROFILE,
-        id: id
+        id
     }
 }
 
 export const delProfile = (id) => async (dispatch) => {
     const res = await fetch(`/api/profiles/${id}/delete`, {
         method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' }
     })
     if (res.ok) {
-        dispatch(del(id))
+        const deleted = await res.json()
+        dispatch(del(deleted.id))
     }
 }
 

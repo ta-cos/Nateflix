@@ -41,7 +41,7 @@ const Rating = ({ video }) => {
                 onClick={handleLike}
                 value={video.id}
             >
-                <img src="https://img.icons8.com/ios/50/000000/comedy.png" />
+                Like
             </button>
             <button
                 className={reviews.find(review => { return review.video_id === video.id })?.rating === 0 ? 'hated' : 'not-hated'}
