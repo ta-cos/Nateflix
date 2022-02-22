@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect, useHistory, useParams } from 'react-router-dom';
+import { Redirect, useHistory, useParams, Link } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import { SplashContainer } from '../Splash/SplashElements';
 import './SignUpForm.css'
 
-const SignUpForm = () => {
+const SignUpForm = ({ passedEmail }) => {
 
-  const initalEmail = useParams()
+  const initalEmail = passedEmail
   const [errors, setErrors] = useState([]);
-  const [email, setEmail] = useState(initalEmail.email);
+  const [email, setEmail] = useState(passedEmail);
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
@@ -89,6 +89,9 @@ const SignUpForm = () => {
             ></input>
           </div>
           <button className='form-submit' type='submit'>Sign Up</button>
+
+          <p className='form-change'>Already have an account? <Link to="/login">Log in now.</Link></p>
+
         </form>
       </div>
     </>

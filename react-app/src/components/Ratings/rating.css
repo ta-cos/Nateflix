@@ -1,6 +1,6 @@
 .liked{
     background-color: transparent;
-    font-size: 15px;
+    font-size: 25px;
     color: green;
     height: 50px;
     width: 50px;
@@ -9,7 +9,7 @@
 
 .hated{
     background-color: transparent;
-    font-size: 15px;
+    font-size: 25px;
     color: red;
     height: 50px;
     width: 50px;
@@ -19,7 +19,7 @@
 
 .not-liked{
     background-color: transparent;
-    font-size: 15px;
+    font-size: 25px;
     color: white;
     height: 50px;
     width: 50px;
@@ -28,7 +28,7 @@
 
 .not-hated{
     background-color: transparent;
-    font-size:15px;
+    font-size: 25px;
     color: white;
     height: 50px;
     width: 50px;
@@ -38,7 +38,7 @@
 
 .remove{
     background-color: transparent;
-    font-size: 15px;
+    font-size: 25px;
     color: white;
     height: 50px;
     width: 50px;

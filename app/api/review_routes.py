@@ -18,10 +18,6 @@ def get_review(profile_id):
 def create_review():
     object = request.json
 
-    print()
-    print(object)
-    print()
-
     isNotNew = Review.query.filter(
         Review.profile_id == object['profile_id'], Review.video_id == object['video_id']).first()
 
@@ -36,18 +32,6 @@ def create_review():
         db.session.add(review)
         db.session.commit()
         return review.to_dict()
-
-
-# @review_routes.route('/<int:review_id>/edit', methods=['PUT'])
-# @login_required
-# def edit_review(review_id):
-#     object = request.json
-
-#     review = Review.query.get(review_id)
-#     review.rating = object['rating']
-#     db.session.add(review)
-#     db.session.commit()
-#     return review.to_dict()
 
 
 @review_routes.route('/<int:id>/delete', methods=['DELETE'])

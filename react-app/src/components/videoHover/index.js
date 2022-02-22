@@ -2,13 +2,9 @@ import { useEffect, useState } from 'react'
 import Rating from '../Ratings';
 import ListMangement from '../ListManagement';
 
-const VideoHover = ({ video }) => {
+const VideoHover = ({ video, profileId }) => {
 
     const [showRating, setShowRating] = useState(false);
-
-    useEffect(() => {
-        console.log(showRating)
-    }, [showRating])
 
     return (
         <div className='item'>
@@ -21,7 +17,7 @@ const VideoHover = ({ video }) => {
                 <div style={{ opacity: showRating ? 1 : 0 }}>
                     <ListMangement video={video} />
                     <div id='rating'>
-                        <Rating video={video} />
+                        <Rating profileId={profileId} video={video} />
                     </div>
                 </div>
             </div>

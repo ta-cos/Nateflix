@@ -26,7 +26,7 @@ const Navbar = () => {
 
   return (
     <NavbarWrapper>
-      <NavLink to='/'><img src={logo} alt="Logo" /> </NavLink>
+      <NavLink to='/profiles'><img src={logo} alt="Logo" /> </NavLink>
       {path !== '/profiles' ?
         <>
           <ButtonWrapper>

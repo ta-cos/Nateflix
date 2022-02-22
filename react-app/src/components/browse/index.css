@@ -31,7 +31,7 @@
 
 .rating-buttons{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 button{
@@ -53,4 +53,10 @@ button{
 #left-arrow:hover,
 #right-arrow:hover{
     background-color: rgba((255, 255, 255, 0.2));
+}
+
+.list-management{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

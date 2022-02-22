@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Redirect, useParams } from 'react-router-dom';
 import { loadMyList } from '../../store/myList';
 import { getVideos } from '../../store/videos'
 import Carousel from '../Carousel/carousel';
 import './index.css'
 
-const Browse = () => {
+const Browse = ({ profileId }) => {
+
+    console.log('@@@@@@@@@@@@@@@@@@@@@@')
+    console.log(profileId)
 
     const dispatch = useDispatch();
-    const profileId = useParams();
 
     useEffect(async () => {
-        await dispatch(loadMyList(profileId.profileId))
+        await dispatch(loadMyList(profileId))
     }, [])
 
     useEffect(async () => {
@@ -30,25 +32,26 @@ const Browse = () => {
     const myVids = myList?.map(item => (item.video_id))
     const listVids = videos?.filter(vid => myVids.includes(vid.id))
 
-    console.log(listVids)
-
+    if (!profileId) {
+        return <Redirect to="/profiles" />
+    }
 
     return (
         <div className='browse-container'>
             {myList.length > 0 &&
                 <>
                     <h2>My List</h2>
-                    <Carousel props={listVids} />
+                    <Carousel props={listVids} profileId={profileId} />
                 </>
             }
             <h2>Comedy</h2>
-            <Carousel props={comedyVids} />
+            <Carousel props={comedyVids} profileId={profileId} />
             <h2>Drama</h2>
-            <Carousel props={dramaVids} />
+            <Carousel props={dramaVids} profileId={profileId} />
             <h2>Romance</h2>
-            <Carousel props={romanceVids} />
+            <Carousel props={romanceVids} profileId={profileId} />
             <h2>Action</h2>
-            <Carousel props={actionVids} />
+            <Carousel props={actionVids} profileId={profileId} />
         </div>
 
     )

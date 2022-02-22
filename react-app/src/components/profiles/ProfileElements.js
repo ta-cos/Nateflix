@@ -33,22 +33,14 @@ export const ProfileCard = styled.div`
 `
 
 export const ProfileButtonsContainer = styled.div`
+    font-family: sans-serif;
     display: flex;
-    flex-direction: column;
     align-items: center;
 
-    input{
-        width: 100px;
-        border-radius: 4px;
-        margin: 10px;
+    h2{
+        font-size: 22px;
     }
 
-    input:focus{
-        outline: none;
-        border: 2px solid #E50914;
-        border-radius: 4px;
-
-    }
 `
 
 export const ProfileButton = styled.button`
@@ -66,6 +58,9 @@ export const EditButton = styled.button`
     color: white;
     background: transparent;
     padding: 5px;
+    font-size: 16px;
+    margin-left: 10px;
+    margin-right: 10px;
 
     &:hover{
         color: #E50914;
@@ -75,8 +70,26 @@ export const DelButton = styled.button`
     color: white;
     background: transparent;
     padding: 5px;
+    font-size: 16px;
 
     &:hover{
         color: red;
+    }
+`
+
+export const FormHolder = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25px;
+    width: 200px;
+
+    input{
+        width: 100px;
+        height: 30px;
+        font-size: 22px;
+        background-color: black;
+        border: 2px solid white;
+        color: white;
     }
 `

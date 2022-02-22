@@ -40,7 +40,6 @@ def delete_profile(id):
 def create_profile(id):
 
     imgs = [
-        'https://res.cloudinary.com/dzmdi0dms/image/upload/v1645550466/images/puppy_n09prf.png',
         'https://res.cloudinary.com/dzmdi0dms/image/upload/v1645550447/images/turkey_vlsflp.png',
         'https://res.cloudinary.com/dzmdi0dms/image/upload/v1645550421/images/snail_lz76r2.png',
         'https://res.cloudinary.com/dzmdi0dms/image/upload/v1645550335/images/racoon_l2p1m2.jpg',

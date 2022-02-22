@@ -12,6 +12,8 @@ import SelectProfile from './components/SelectProfile';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
+  const [email, setEmail] = useState();
+  const [profileId, setProfileId] = useState();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -20,6 +22,14 @@ function App() {
       setLoaded(true);
     })();
   }, [dispatch]);
+
+  const getEmail = (email) => {
+    setEmail(email)
+  }
+
+  const getProfileId = (profileId) => {
+    setProfileId(profileId)
+  }
 
   if (!loaded) {
     return null;
@@ -32,17 +42,17 @@ function App() {
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
-        <Route path='/sign-up/:email' exact={true}>
-          <SignUpForm />
+        <Route path='/signup' exact={true}>
+          <SignUpForm passedEmail={email} />
         </Route>
         <ProtectedRoute path='/profiles' exact={true} >
-          <SelectProfile />
+          <SelectProfile getProfileId={getProfileId} />
         </ProtectedRoute>
-        <ProtectedRoute path='/browse/:profileId' exact={true} >
-          <Browse />
+        <ProtectedRoute path='/browse' exact={true} >
+          <Browse profileId={profileId} />
         </ProtectedRoute>
         <Route path='/' exact={true} >
-          <Splash />
+          <Splash getEmail={getEmail} />
         </Route>
       </Switch>
     </BrowserRouter>

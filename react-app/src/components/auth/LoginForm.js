@@ -71,7 +71,7 @@ const LoginForm = () => {
           </div>
           <button className='form-submit' type='submit'>Login</button>
 
-          <p className='form-change'>New to NATEFLIX? <Link to="/sign-up/Email">Sign up now.</Link></p>
+          <p className='form-change'>New to NATEFLIX? <Link to="/signup">Sign up now.</Link></p>
         </form>
       </div>
     </>

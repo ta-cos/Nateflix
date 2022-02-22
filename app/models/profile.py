@@ -15,7 +15,7 @@ class Profile(db.Model):
     user_info = db.relationship("User", back_populates="profile_info")
     review_info = db.relationship(
         "Review", back_populates="profile", cascade='all, delete-orphan')
-    myList_info = db.relationship("MyList", back_populates="profile3")
+    myList_info = db.relationship("MyList", back_populates="profile3", cascade='all, delete-orphan')
 
     def to_dict(self):
         return {
@@ -24,4 +24,3 @@ class Profile(db.Model):
             "name": self.name,
             "img": self.img
         }
-

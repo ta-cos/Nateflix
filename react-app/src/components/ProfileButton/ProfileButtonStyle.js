@@ -53,3 +53,7 @@ export const ProfileDropdown = styled.div`
 
 
 `
+
+export const ProfileImgButton = styled.button`
+    
+`

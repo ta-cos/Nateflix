@@ -14,7 +14,16 @@
 
 #add-profile{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    margin-top: 10%;
+    align-items: center;
+    margin-top: 5%;
+}
+
+#add-profile input{
+    border: 2px solid #E50419;
+}
+
+.error{
+    color: red;
 }

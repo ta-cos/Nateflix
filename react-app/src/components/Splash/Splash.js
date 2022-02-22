@@ -2,14 +2,15 @@ import React, { useState } from 'react'
 import { SplashContainer, SplashContenet } from './SplashElements'
 import { useHistory } from 'react-router-dom'
 
-const Splash = () => {
+const Splash = ({ getEmail }) => {
 
   const history = useHistory()
   const [email, setEmail] = useState();
 
   const handleGetStarted = (e) => {
     e.preventDefault()
-    history.push(`/sign-up/${email}`)
+    getEmail(email)
+    history.push(`/signup`)
   }
   return (
     <>
