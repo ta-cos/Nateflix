@@ -13,7 +13,7 @@ const VideoHover = ({ video, profileId }) => {
                 onMouseEnter={() => setShowRating(true)}
                 onMouseLeave={() => setShowRating(false)}
             >
-                <iframe loading='lazy' width='100%' src={video.vid} frameBorder="0" allowFullScreen />
+                <iframe loading='lazy' height='250px' width='250px' src={video.vid} frameBorder="0" allowFullScreen />
                 <div style={{ opacity: showRating ? 1 : 0 }}>
                     <ListMangement video={video} profileId={profileId} />
                     <div id='rating'>

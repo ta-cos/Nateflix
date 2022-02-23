@@ -44,8 +44,12 @@ const Browse = ({ profileId }) => {
                     <Carousel props={listVids} profileId={profileId} />
                 </>
             }
-            <h2>Comedy</h2>
-            <Carousel props={comedyVids} profileId={profileId} />
+            {comedyVids.length > 0 &&
+                <>
+                    <h2>Comedy</h2>
+                    <Carousel props={comedyVids} profileId={profileId} />
+                </>
+            }
             <h2>Drama</h2>
             <Carousel props={dramaVids} profileId={profileId} />
             <h2>Romance</h2>

@@ -1,31 +1,46 @@
 .browse-container{
     color: white;
+    width: 90%;
+    margin: 0;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-#vids-container{
+.vids-container{
     display: flex;
     flex-direction: column;
     align-items: center;
     color: white;
     object-fit: contain;
     margin-bottom: 50px;
-}
-
-#vids{
-    overflow: hidden;
     width: 100%;
-    display: flex;
+
 }
 
-#inner{
+.for-buttons{
+    display: flex;
+    width: 90%;
+}
+
+.vids{
+    width: 99%;
+    overflow: hidden;
+    display: flex;
+
+}
+
+.inner{
     transition: transform 0.3s;
     white-space: nowrap;
     width: 100%;
 }
 
 .item{
+    padding-top: 10px;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     width: 25%;
 }
 
@@ -53,7 +68,9 @@ button{
 #left-arrow:hover,
 #right-arrow:hover{
     background-color: rgba((255, 255, 255, 0.2));
+
 }
+
 
 .list-management{
     text-align: center;
