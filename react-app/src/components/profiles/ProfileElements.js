@@ -89,7 +89,7 @@ export const FormHolder = styled.div`
         height: 30px;
         font-size: 22px;
         background-color: black;
-        border: 2px solid white;
+        border: 2px solid #E50914;
         color: white;
     }
 `

@@ -15,7 +15,7 @@ const VideoHover = ({ video, profileId }) => {
             >
                 <iframe loading='lazy' width='100%' src={video.vid} frameBorder="0" allowFullScreen />
                 <div style={{ opacity: showRating ? 1 : 0 }}>
-                    <ListMangement video={video} />
+                    <ListMangement video={video} profileId={profileId} />
                     <div id='rating'>
                         <Rating profileId={profileId} video={video} />
                     </div>

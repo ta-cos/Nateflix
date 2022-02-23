@@ -22,6 +22,16 @@
 
 #add-profile input{
     border: 2px solid #E50419;
+    height: 30px;
+    font-size: 20px;
+    background-color: black;
+    color: white;
+}
+
+.form-submit{
+    width: 100px;
+    font-size: 20px;
+    margin-top: 10px;
 }
 
 .error{

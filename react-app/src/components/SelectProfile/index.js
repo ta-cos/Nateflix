@@ -60,7 +60,7 @@ const SelectProfile = ({ getProfileId }) => {
                     <form onSubmit={handleAdd}>
                         <input type='text' placeholder='Profile Name' value={profileName}
                             onChange={e => setProfileName(e.target.value)} required={true}></input>
-                        <button type='submit'> Add Profile </button>
+                        <button type='submit' className='form-submit'> Add Profile </button>
                     </form>
                 }
             </div>

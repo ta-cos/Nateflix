@@ -3,15 +3,14 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { delListItem, addtoList } from '../../store/myList';
 
-const ListMaangement = ({ video }) => {
+const ListMaangement = ({ video, profileId }) => {
 
     const dispatch = useDispatch();
-    const profileId = useParams();
     const thisVideoId = video.id
     const thisVideoTitle = video.title
 
     const handleAdd = async (e) => {
-        await dispatch(addtoList(thisVideoTitle, profileId.profileId, thisVideoId))
+        await dispatch(addtoList(thisVideoTitle, profileId, thisVideoId))
     }
 
     const handleDel = async (e) => {
@@ -24,7 +23,9 @@ const ListMaangement = ({ video }) => {
 
     return (
         <div className='list-management'>
-            {myVids.includes(thisVideoId) ? <button value={video.id} onClick={handleDel}>Remove Form List</button> : <button value={video} onClick={handleAdd}>Add To List</button>}
+            {myVids.includes(thisVideoId)
+                ? <button value={thisVideoId} onClick={handleDel}>Remove Form List</button>
+                : <button value={thisVideoId} onClick={handleAdd}>Add To List</button>}
         </div>
     )
 }

@@ -81,7 +81,6 @@ const Profile = ({ profile, getProfileId }) => {
                                 name="Profile"
                                 value={newProfileName}
                                 onChange={e => setProfileName(e.target.value)}
-                                on={e => setShowEditForm(false)}
                             >
                             </input>
                             <EditButton type="submit"><FaCheckCircle /></EditButton>
