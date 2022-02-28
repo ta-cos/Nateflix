@@ -9,6 +9,7 @@ import { authenticate } from './store/session';
 import Splash from './components/Splash/Splash'
 import Browse from './components/browse';
 import SelectProfile from './components/SelectProfile';
+import NoPage from './components/NoPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -53,6 +54,9 @@ function App() {
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <Splash getEmail={getEmail} />
+        </Route>
+        <Route>
+          <NoPage />
         </Route>
       </Switch>
     </BrowserRouter>

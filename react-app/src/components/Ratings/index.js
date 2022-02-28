@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { GiPopcorn, GiTomato, GiTrashCan } from 'react-icons/gi'
@@ -26,12 +26,11 @@ const Rating = ({ video, profileId }) => {
     }
 
     const handleDelete = async (e) => {
-        console.log(thisReview.id)
         await dispatch(delReview(thisReview.id))
     }
 
     const reviews = Object.values(useSelector(state => state.reviews))
-    const thisReview = reviews.find(review => review.video_id === video.id && profileId.profileId == review.profile_id)
+    const thisReview = reviews.find(review => review.video_id === video.id && profileId == review.profile_id)
     reviews.find(review => { return review.video_id === video.id })
 
     return (
@@ -53,13 +52,16 @@ const Rating = ({ video, profileId }) => {
             >
                 <GiTomato />
             </button>
-            <button
-                className='remove' value={reviews.find(review => { return review.video_id === video.id })?.id}
-                disabled={!reviews.find(review => review.video_id === video.id)}
-                onClick={handleDelete}
-            >
-                <GiTrashCan />
-            </button>
+
+            {thisReview ?
+                <button
+                    className='remove' value={reviews.find(review => { return review.video_id === video.id })?.id}
+                    onClick={handleDelete}
+                >
+                    <GiTrashCan />
+                </button>
+
+                : null}
         </div>
     )
 }

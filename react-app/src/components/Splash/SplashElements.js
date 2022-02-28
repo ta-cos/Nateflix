@@ -18,7 +18,7 @@ export const SplashContenet = styled.div`
     flex-direction: column;
     align-items: center;
     color: white;
-    margin-top: 7%;
+    margin-top: 2%;
     font-family: sans-serif;
 
 

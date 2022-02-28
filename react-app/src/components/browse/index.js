@@ -8,9 +8,6 @@ import './index.css'
 
 const Browse = ({ profileId }) => {
 
-    console.log('@@@@@@@@@@@@@@@@@@@@@@')
-    console.log(profileId)
-
     const dispatch = useDispatch();
 
     useEffect(async () => {

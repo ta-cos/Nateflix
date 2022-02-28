@@ -25,6 +25,9 @@ const Splash = ({ getEmail }) => {
           <button type='submit' >Get Started </button>
         </form>
       </SplashContenet>
+      <a id='github' href='https://github.com/ta-cos'> GitHub </a>
+      <a id='linkedin' href='https://www.linkedin.com/in/nathan-treadaway'> LinkedIn </a>
+
     </>
   )
 }

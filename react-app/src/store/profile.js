@@ -107,7 +107,7 @@ const profileReducer = (state = initialState, action) => {
             return newState
         }
         case DELETE_PROFILE: {
-            delete newState[action.id];
+            delete newState[action.id]; 
             return newState
         }
         default:
