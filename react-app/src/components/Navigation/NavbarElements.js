@@ -70,6 +70,28 @@ export const ProfileContent = styled.div`
     right: 100px;
 `
 
-export const EmailContainer = styled.div`
+export const SearchBar = styled.input`
 
+    height: 30px;
+    width: 15%;
+    min-width: 200px;
+    border: 1px solid red;
+    border-radius: 4px;
+
+
+`
+export const SearchDiv = styled.div`
+    position: absolute;
+    top:4%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    width: 15%;
+    min-width: 250px;
+
+    button{
+        position: absolute;
+        right: 0%;
+    }
 `
