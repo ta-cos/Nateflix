@@ -10,11 +10,13 @@ import Splash from './components/Splash/Splash'
 import Browse from './components/browse';
 import SelectProfile from './components/SelectProfile';
 import NoPage from './components/NoPage';
+import Search from './components/search';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const [email, setEmail] = useState();
   const [profileId, setProfileId] = useState();
+  const [searchTerm, setSearchTerm] = useState('');
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -32,13 +34,18 @@ function App() {
     setProfileId(profileId)
   }
 
+  const getSearchTerm = (searchTerm) => {
+    setSearchTerm(searchTerm)
+  }
+
+
   if (!loaded) {
     return null;
   }
 
   return (
     <BrowserRouter>
-      <Navbar />
+      <Navbar setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
@@ -51,6 +58,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/browse' exact={true} >
           <Browse profileId={profileId} />
+        </ProtectedRoute>
+        <ProtectedRoute path='/search'>
+          <Search searchTerm={searchTerm} />
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <Splash getEmail={getEmail} />

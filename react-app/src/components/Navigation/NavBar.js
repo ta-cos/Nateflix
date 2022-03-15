@@ -8,16 +8,15 @@ import logo from '../../images/nateflix-red.png'
 import { useEffect, useState } from 'react';
 
 
-const Navbar = () => {
+const Navbar = ({ searchTerm, setSearchTerm }) => {
 
   const location = useLocation();
-  const path = location.pathname
+  const path = location.pathname;
   const dispatch = useDispatch();
   const history = useHistory();
 
   const user = useSelector(state => state.session.user)
 
-  const [searchTerm, setSearchTerm] = useState('');
 
   const handleDemo = async () => {
     let email = 'nate@nateflix.com', password = 'password';
@@ -25,8 +24,9 @@ const Navbar = () => {
     history.push('/profiles')
   }
 
-  const handleSearch = () => {
+  const handleSearch = async () => {
     console.log(searchTerm)
+    history.push('/search')
   }
 
   return (
