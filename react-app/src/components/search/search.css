@@ -7,3 +7,11 @@
 
     text-align: center;
 }
+
+#goBack{
+    background-color: #E50914;
+    height: 30px;
+    font-size: 22px;
+    border-radius: 4px;
+    margin-top: 20px;
+}

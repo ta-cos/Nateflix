@@ -77,6 +77,7 @@ export const SearchBar = styled.input`
     border: 1px solid red;
     border-radius: 4px;
     margin-right: 10px;
+    font-size: 20px;
 
 `
 export const SearchDiv = styled.div`
