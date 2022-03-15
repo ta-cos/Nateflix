@@ -71,13 +71,12 @@ export const ProfileContent = styled.div`
 `
 
 export const SearchBar = styled.input`
-
     height: 30px;
-    width: 15%;
+    width: 100%;
     min-width: 200px;
     border: 1px solid red;
     border-radius: 4px;
-
+    margin-right: 10px;
 
 `
 export const SearchDiv = styled.div`
@@ -92,6 +91,16 @@ export const SearchDiv = styled.div`
 
     button{
         position: absolute;
-        right: 0%;
+        right: 5%;
+        z-index: 2;
+        height: 30px;
+        width: 30px;
+        font-size: 22px;
+        color: black;
+        background: transparent;
+    }
+
+    button:hover{
+        color: #E50914;
     }
 `

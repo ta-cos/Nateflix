@@ -47,7 +47,7 @@ const Navbar = ({ searchTerm, setSearchTerm }) => {
       {path === '/browse' ?
         <SearchDiv>
           <SearchBar value={searchTerm} placeholder='Search...' onChange={e => setSearchTerm(e.target.value)} />
-          <DemoButton onClick={handleSearch}>Send</DemoButton>
+          <button onClick={handleSearch}>?</button>
         </SearchDiv>
         :
         null

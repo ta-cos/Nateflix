@@ -6,11 +6,12 @@ import './search.css'
 const Search = ({ searchTerm }) => {
 
     const videos = Object.values(useSelector(state => state.videos))
-
+    let foundVids = [];
     //if title contains the search term filter it into new arr
-    const foundVids = videos?.filter(vid => vid.title.toLowerCase().includes(searchTerm.toLowerCase()))
-    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!')
-    console.log(foundVids)
+    if (searchTerm === '' || searchTerm[0] === " ") {
+        foundVids = [];
+    } else
+        foundVids = videos?.filter(vid => vid.title.toLowerCase().includes(searchTerm.toLowerCase()))
 
 
     return (
